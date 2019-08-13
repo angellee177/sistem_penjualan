@@ -1,0 +1,65 @@
+
+<%# Form  %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <%= form_for(@user, :html => {class: "form-horizontal", role: "form"}) do |form| %>
+              <%#  Username Column %>
+              <div class="form-group">
+                <div class="control-label col-md-2">
+                  <%= form.label :username %>
+                </div>
+                <div class="col-md-8">
+                  <%= form.text_field :username, class:'form-control', placeholder:'input your Username Here' %>
+                </div>
+              </div>
+
+              <%# User Email Column %>
+              <div class="form-group">
+                <div class="control-label col-md-2">
+                  <%= form.label :email %>
+                </div>
+                <div class="col-md-8">
+                  <%= form.text_field :email, class:'form-control', placeholder:'Input your Email Here' %>
+                </div>  
+              </div>
+
+              <%# User Password Column %>
+              <div class="form-group">
+                <div class="control-label col-md-2">
+                    <%= form.label :password %>
+                </div>
+                <div class="col-md-8">
+                    <%= form.password_field :password, class:'form-control', placeholder:'Enter your Password'%>
+                </div>
+              </div>
+
+              <%# User Password Confirmation Column %>
+              <div class="form-group">
+                  <div class="control-label col-md-2">
+                      <%= form.label :password_confirmation, "Confirm Password" %>
+                  </div>
+                  <div class="col-md-8">
+                      <%= form.password_field :password_confirmation, class:'form-control', placeholder:'Confirm your Password Here'%>
+                  </div>
+              </div>
+
+              <%# User Profile Picture Column %>
+              <div class="form-group">
+                <div class="control-label col-md-2">
+                  <%= form.label :picture %>    
+                </div>
+                <div class="col-md-8">
+                  <%= form.file_field :picture, class:'form-control' %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                  <%= form.submit %>
+                </div>
+              </div>
+            <% end %>
+        </div>
+    </div>
+</div>
