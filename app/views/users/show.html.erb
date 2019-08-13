@@ -1,24 +1,45 @@
 <p id="notice"><%= notice %></p>
+<%= render 'themes/page_title', title: 'User Detail Profile'%>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4 center">
+      <% if @user.picture.attached? %>
+        <%= image_tag url_for(@user.picture), size:'150', class:'img rounded-circle'%>
+      <% else %>
+        <%= gravatar_for @user, size: 150 %>
+      <% end %>
+  </div>
+</div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<h4 style="text-align:center"><%= @user.username %>'s Penjualan</h4>
 
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
+<%# User Profile %>
+<div class="container">
+  <div class="well col-md-8 col-md-offset-2">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <strong>Username</strong> &nbsp
+          </td>
+          <td><%= @user.username %></td>
+        </tr>
+        <tr>
+          <td><strong>Email</strong></td>
+          <td><%= @user.email %></td>
+        </tr>
+      </tbody>
+    </table>
+    <hr/>
+    <%= link_to 'Edit', edit_user_path(@user), class:'btn btn-info' %>
+    <br>
+  </div>
+</div>
 
-<p>
-  <strong>Picture:</strong>
- <%= image_tag url_for(@user.picture), size:'150', class:'img rounded-circle'%>
-</p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+
+
+
+
+
+

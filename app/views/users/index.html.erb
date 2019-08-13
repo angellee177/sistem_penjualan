@@ -18,7 +18,13 @@
         <td><%= user.username %></td>
         <td><%= user.email %></td>
         <td><%= user.password_digest %></td>
-        <td> <%= image_tag url_for(user.picture), size:'150', class:'img rounded-circle'%></td>
+        <td> 
+            <% if user.picture.attached? %>
+              <%= image_tag url_for(user.picture), size:'150', class:'img rounded-circle'%>
+            <% else %>
+              <%= link_to gravatar_for(user), user_path(user) %>
+            <% end %>
+        </td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
